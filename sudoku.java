@@ -6,17 +6,18 @@ class sudoku
 	public static void main(String[] args)
 	{
 		// board array initialized.
-		String[][] board = {{"5", "0", "0"}, {"7", "9", "0"}, {"2", "0", "4"}};
-		String[][] newBoard = new String[3][3];
+		int[][] board = {{5, 0, 0}, {7, 9, 0}, {2, 0, 4}};
+		int[][] newBoard = new int[3][3];
+		int counter = 1;
 
 		// Iterating through the grid.
 		for (int i=0; i<board.length; i++)
 		{
 			for (int j=0; j<board[i].length; j++)
 			{
-				if (board[i][j] == "0")
+				if (board[i][j] == 0)
 				{
-					newBoard[i][j] = "1";
+					newBoard[i][j] = 1;
 				}
 				else {
 					newBoard[i][j] = board[i][j];
