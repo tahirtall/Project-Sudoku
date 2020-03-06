@@ -16,12 +16,11 @@ Progress:
         -> Iterated through the 2D Array.
         -> Created a txt file and passed all of the integers that will be used to create the 2D ArrayList.
         -> Read in the file, and added all of the integers from the txt file to the arraylist.
+        -> 0s are now being placed with numbers 1-9 without being repated in each subarray.
 
 Current Goal:
         
-        -> So now, I need to figure out a way to:
-                1) locate the 0s in each sub-array
-                2) replace located 0s with a number 1-9 that isn't in the subarray yet.
+        -> Check if rows have repeating numbers. if so, replace it with a number that hasn't been used yet. (a number between 1-9)
 
 ArrayList:
 
