@@ -17,10 +17,11 @@ Progress:
         -> Created a txt file and passed all of the integers that will be used to create the 2D ArrayList.
         -> Read in the file, and added all of the integers from the txt file to the arraylist.
         -> 0s are now being placed with numbers 1-9 without being repated in each subarray.
+        -> Created a new function where it gets the location of the 0s.
 
 Current Goal:
         
-        -> Check if rows have repeating numbers. if so, replace it with a number that hasn't been used yet. (a number between 1-9)
+        -> To Be Determined
 
 ArrayList:
 
