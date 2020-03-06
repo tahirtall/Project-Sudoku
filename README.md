@@ -13,17 +13,19 @@ My Rules:
 
 Grid:
 
-    [[0 0 8  [3 1 9  [4 0 2
-      0 0 1   4 5 2   3 0 0
-      2 3 4], 6 0 0], 3 9 1],
-     [6 1 9  [0 0 4  [0 0 0
-      0 2 5   0 9 0   0 0 0
-      4 0 0], 2 0 0], 9 1 5],
-     [1 4 3  [0 0 7  [0 5 9
-      0 0 6   9 0 3   1 0 0
-      9 7 2], 1 0 5], 8 0 0]]
+        [0, 7, 2, 0, 0, 4, 9, 0, 0]
+        [3, 0, 4, 0, 8, 9, 1, 0, 0]
+        [8, 1, 9, 0, 0, 6, 2, 5, 4]
+        [7, 0, 1, 0, 0, 0, 0, 9, 5]
+        [9, 0, 0, 0, 0, 2, 0, 7, 0]
+        [0, 0, 0, 8, 0, 7, 0, 1, 2]
+        [4, 0, 5, 0, 0, 1, 6, 2, 0]
+        [2, 3, 7, 0, 0, 0, 5, 0, 1]
+        [0, 0, 0, 0, 2, 5, 7, 0, 0]
 
 Progress:
 
-    Step 1: Iterate through the 2D Array
-    Step 2: 
+    -> Iterated through the 2D Array.
+    -> Created a txt file and passed all of the integers that will be used to create the 2D ArrayList.
+    -> Read in the file, and added all of the integers from the txt file to the arraylist.
+    
