@@ -48,45 +48,68 @@ class sudoku {
 		return board;
 	}
 
+	// returns index of the column and the row where 0 exists in the board.
+	public static List<List<Integer>> indexMeZero(List<List<Integer>> s){
+		int counter = -1;
+		int counter2 = -1;
+		List<List<Integer>> index = new ArrayList<List<Integer>>(9);
+		for (int i=0; i<9; i++) {
+			index.add(new ArrayList<Integer>());
+		}
+		for (int row=0; row<9; row++) {
+			counter2++;
+			if (s.get(row).contains(0)) {
+				for(int col=0; col<9; col++) {
+					counter++;
+					if (s.get(row).get(col) == 0) {
+						index.get(counter2).add(counter);
+					}
+				}
+			}
+			counter = -1;
+		}
+		return index;
+	}
+
+
 	// Takes the arraylist created by prepTheGame() and properly places all of the
 	// numbers to create a completed Sudoku grid.
 	public static List<List<Integer>> playTheGame() throws IOException {
+		List<List<Integer>> index = new ArrayList<List<Integer>>(9);
 		List<List<Integer>> board = new ArrayList<List<Integer>>(9);
 		board = prepTheGame();
-		int counter = 1;
-		for (int i=0; i<9; i++) {
-			for (int j=0; j<9; j++) {
-				if (board.get(i).get(j) == 0) {
-					if(board.get(i).contains(counter)) {
-						counter++;
-					}
-					board.get(i).set(j, counter);
-				}
-				counter=1;
-			}
-		}
 		return board;
 	}
+
 	public static void main(String[] args) throws IOException
 	{
-		List<List<Integer>> board = new ArrayList<List<Integer>>(9);
-		List<List<Integer>> answerBoard = new ArrayList<List<Integer>>(9);
+		List<List<Integer>> input = new ArrayList<List<Integer>>();
+		List<List<Integer>> output = new ArrayList<List<Integer>>(9);
+		List<List<Integer>> expected = new ArrayList<List<Integer>>(9);
 
-		board = playTheGame();
-		answerBoard = showTheAnswer();
+		input = prepTheGame();
+		output = playTheGame();
+		expected = showTheAnswer();
 
-		System.out.println("\nOutput:");
-		System.out.print("[" + board.get(0) + "\n");
+		//indexes of the 0s.
+		System.out.println("\nIndexes of 0s:");
+		System.out.println(indexMeZero(input));
+		// Below prints input, output, and expected sudoku grids.
+		System.out.println("Input:");
+		System.out.print("[" + input.get(0) + "\n");
 		for (int i=1; i<8; i++) {
-			System.out.print(" " + board.get(i) + "\n");
-		}
-		System.out.print(" " + board.get(8) + "]\n");
+			System.out.print(" " + input.get(i) + "\n");}
+		System.out.print(" " + input.get(8) + "]\n");
+		System.out.println("Output:");
+		System.out.print("[" + output.get(0) + "\n");
+		for (int i=1; i<8; i++) {
+			System.out.print(" " + output.get(i) + "\n");}
+		System.out.print(" " + output.get(8) + "]\n");
 		System.out.println("Expected:");
-		System.out.print("[" + answerBoard.get(0) + "\n");
+		System.out.print("[" + expected.get(0) + "\n");
 		for (int i=1; i<8; i++) {
-			System.out.print(" " + answerBoard.get(i) + "\n");
-		}
-		System.out.print(" " + answerBoard.get(8) + "]\n");
+			System.out.print(" " + expected.get(i) + "\n");}
+		System.out.print(" " + expected.get(8) + "]\n");
 		System.out.print(" ");
-	}
+	} 
 }
