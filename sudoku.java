@@ -7,6 +7,26 @@ import java.util.Scanner;
 
 class sudoku {
 
+	public static List<List<Integer>> showTheAnswer() throws IOException {
+		List<List<Integer>> board = new ArrayList<List<Integer>>(9);
+		for (int i=0; i<9; i++) {
+			board.add(new ArrayList<Integer>(9));
+		}
+		Path filePath = Paths.get("solved.txt");
+		Scanner scanner = new Scanner(filePath);
+		int num = 0;
+		int counter = 0;
+		while (num < 9) {
+			while (counter < 9) {
+					board.get(num).add(scanner.nextInt());
+					counter++;
+			}
+			num++;
+			counter = 0;
+		}
+		return board;
+	}
+
 	// Reads in the txt file, and creates a 2D Arraylist.
 	public static List<List<Integer>> prepTheGame() throws IOException {
 		List<List<Integer>> board = new ArrayList<List<Integer>>(9);
@@ -41,13 +61,11 @@ class sudoku {
 						counter++;
 					}
 					board.get(i).set(j, counter);
-					counter++;
 				}
+				counter=1;
 			}
-			counter = 0;
 		}
-		//TODO: Check the rows, and replace the numbers to make sure
-		// 		there are no repeating numbers on each row.
+		// TODO: Check the rows, and replace the numbers to make sure there are no repeating numbers on each row.
 		return board;
 	}
 	public static void main(String[] args) throws IOException
