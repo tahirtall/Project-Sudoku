@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 class sudoku {
-
+	// Returns 2D Array of the Answer
 	public static List<List<Integer>> showTheAnswer() throws IOException {
 		List<List<Integer>> board = new ArrayList<List<Integer>>(9);
 		for (int i=0; i<9; i++) {
@@ -65,17 +65,28 @@ class sudoku {
 				counter=1;
 			}
 		}
-		// TODO: Check the rows, and replace the numbers to make sure there are no repeating numbers on each row.
 		return board;
 	}
 	public static void main(String[] args) throws IOException
 	{
 		List<List<Integer>> board = new ArrayList<List<Integer>>(9);
+		List<List<Integer>> answerBoard = new ArrayList<List<Integer>>(9);
+
 		board = playTheGame();
+		answerBoard = showTheAnswer();
+
+		System.out.println("\nOutput:");
 		System.out.print("[" + board.get(0) + "\n");
 		for (int i=1; i<8; i++) {
 			System.out.print(" " + board.get(i) + "\n");
 		}
-		System.out.print(" " + board.get(8) + "]");
+		System.out.print(" " + board.get(8) + "]\n");
+		System.out.println("Expected:");
+		System.out.print("[" + answerBoard.get(0) + "\n");
+		for (int i=1; i<8; i++) {
+			System.out.print(" " + answerBoard.get(i) + "\n");
+		}
+		System.out.print(" " + answerBoard.get(8) + "]\n");
+		System.out.print(" ");
 	}
 }
