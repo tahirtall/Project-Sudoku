@@ -24,8 +24,11 @@ class sudoku {
 			num++;
 			counter = 0;
 		}
-		for (int i=0; i<9; i++) {
-			System.out.println(board.get(i));
+
+		System.out.print("[" + board.get(1) + "\n");
+		for (int i=1; i<8; i++) {
+			System.out.print(" " + board.get(i) + "\n");
 		}
+		System.out.print(" " + board.get(8) + "]");
 	}
 }
