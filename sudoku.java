@@ -18,8 +18,8 @@ class sudoku {
 		int counter = 0;
 		while (num < 9) {
 			while (counter < 9) {
-					board.get(num).add(scanner.nextInt());
-					counter++;
+				board.get(num).add(scanner.nextInt());
+				counter++;
 			}
 			num++;
 			counter = 0;
