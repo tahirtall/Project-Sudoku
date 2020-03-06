@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 class sudoku {
 
+	// Reads in the txt file, and creates a 2D Arraylist.
 	public static List<List<Integer>> prepTheGame() throws IOException {
 		List<List<Integer>> board = new ArrayList<List<Integer>>(9);
 		for (int i =0; i<9; i++) {
@@ -24,6 +25,15 @@ class sudoku {
 			num++;
 			counter = 0;
 		}
+		return board;
+	}
+
+	// Takes the arraylist created by prepTheGame() and properly places all of the
+	// numbers to create a completed Sudoku grid.
+	public static List<List<Integer>> playTheGame() throws IOException {
+		List<List<Integer>> board = new ArrayList<List<Integer>>(9);
+		board = prepTheGame();
+		// TODO
 		return board;
 	}
 	public static void main(String[] args) throws IOException
