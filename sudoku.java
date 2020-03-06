@@ -33,14 +33,26 @@ class sudoku {
 	public static List<List<Integer>> playTheGame() throws IOException {
 		List<List<Integer>> board = new ArrayList<List<Integer>>(9);
 		board = prepTheGame();
-		// TODO
+		int counter = 1;
+		for (int i=0; i<9; i++) {
+			for (int j=0; j<9; j++) {
+				if (board.get(i).get(j) == 0) {
+					if(board.get(i).contains(counter)) {
+						counter++;
+					}
+					board.get(i).set(j, counter);
+					counter++;
+				}
+			}
+			counter = 0;
+		}
 		return board;
 	}
 	public static void main(String[] args) throws IOException
 	{
 		List<List<Integer>> board = new ArrayList<List<Integer>>(9);
-		board = prepTheGame();
-		System.out.print("[" + board.get(1) + "\n");
+		board = playTheGame();
+		System.out.print("[" + board.get(0) + "\n");
 		for (int i=1; i<8; i++) {
 			System.out.print(" " + board.get(i) + "\n");
 		}
