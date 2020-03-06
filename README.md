@@ -11,7 +11,23 @@ My Rules:
         
         -> 0s will be representing blank spaces.
 
-Grid:
+Progress:
+
+        -> Iterated through the 2D Array.
+        -> Created a txt file and passed all of the integers that will be used to create the 2D ArrayList.
+        -> Read in the file, and added all of the integers from the txt file to the arraylist.
+
+Current Goal:
+        
+        -> So now, I need to figure out a way to:
+                1) locate the 0s in each sub-array
+                2) replace located 0s with a number 1-9 that isn't in the subarray yet.
+
+ArrayList:
+
+[[0, 7, 2, 0, 0, 4, 9, 0, 0][3, 0, 4, 0, 8, 9, 1, 0, 0][8, 1, 9, 0, 0, 6, 2, 5, 4][7, 0, 1, 0, 0, 0, 0, 9, 5][9, 0, 0, 0, 0, 2, 0, 7, 0][0, 0, 0, 8, 0, 7, 0, 1, 2][4, 0, 5, 0, 0, 1, 6, 2, 0][2, 3, 7, 0, 0, 0, 5, 0, 1][0, 0, 0, 0, 2, 5, 7, 0, 0]]
+
+Grid (after printing the arraylist properly):
 
         [0, 7, 2, 0, 0, 4, 9, 0, 0]
         [3, 0, 4, 0, 8, 9, 1, 0, 0]
@@ -23,9 +39,3 @@ Grid:
         [2, 3, 7, 0, 0, 0, 5, 0, 1]
         [0, 0, 0, 0, 2, 5, 7, 0, 0]
 
-Progress:
-
-    -> Iterated through the 2D Array.
-    -> Created a txt file and passed all of the integers that will be used to create the 2D ArrayList.
-    -> Read in the file, and added all of the integers from the txt file to the arraylist.
-    
