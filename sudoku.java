@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 class sudoku {
+
 	// Returns 2D Array of the Answer
 	public static List<List<Integer>> showTheAnswer() throws IOException {
 		List<List<Integer>> board = new ArrayList<List<Integer>>(9);
@@ -48,7 +49,7 @@ class sudoku {
 		return board;
 	}
 
-	// returns index of the column and the row where 0 exists in the board.
+	// Returns index of the column and the row where 0 exists in the board.
 	public static List<List<Integer>> indexMeZero(List<List<Integer>> s){
 		int counter = -1;
 		int counter2 = -1;
@@ -78,6 +79,8 @@ class sudoku {
 		List<List<Integer>> index = new ArrayList<List<Integer>>(9);
 		List<List<Integer>> board = new ArrayList<List<Integer>>(9);
 		board = prepTheGame();
+		index = indexMeZero(board);
+		// TODO: Use index object to somehow check rows and columns and somehow edit down the correct number and return it.
 		return board;
 	}
 
@@ -91,24 +94,27 @@ class sudoku {
 		output = playTheGame();
 		expected = showTheAnswer();
 
-		//indexes of the 0s.
+		// Indexes of the 0s.
 		System.out.println("\nIndexes of 0s:");
 		System.out.println(indexMeZero(input));
 		// Below prints input, output, and expected sudoku grids.
 		System.out.println("Input:");
 		System.out.print("[" + input.get(0) + "\n");
 		for (int i=1; i<8; i++) {
-			System.out.print(" " + input.get(i) + "\n");}
+			System.out.print(" " + input.get(i) + "\n");
+		}
 		System.out.print(" " + input.get(8) + "]\n");
 		System.out.println("Output:");
 		System.out.print("[" + output.get(0) + "\n");
 		for (int i=1; i<8; i++) {
-			System.out.print(" " + output.get(i) + "\n");}
+			System.out.print(" " + output.get(i) + "\n");
+		}
 		System.out.print(" " + output.get(8) + "]\n");
 		System.out.println("Expected:");
 		System.out.print("[" + expected.get(0) + "\n");
 		for (int i=1; i<8; i++) {
-			System.out.print(" " + expected.get(i) + "\n");}
+			System.out.print(" " + expected.get(i) + "\n");
+		}
 		System.out.print(" " + expected.get(8) + "]\n");
 		System.out.print(" ");
 	} 
