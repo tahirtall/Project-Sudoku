@@ -25,4 +25,5 @@ Grid:
 
 Progress:
 
-    Step 1: Try to fill out a 3x3 block within the rules
+    Step 1: Iterate through the 2D Array
+    Step 2: 

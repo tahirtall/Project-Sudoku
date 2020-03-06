@@ -1,32 +1,32 @@
 import java.util.Arrays;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
-class sudoku
-{
-	public static void main(String[] args)
+class sudoku {
+	public static void main(String[] args) throws IOException
 	{
-		// board array initialized.
-		int[][] board = {{5, 0, 0}, {7, 9, 0}, {2, 0, 4}};
-		int[][] newBoard = new int[3][3];
-		int counter = 1;
-
-		// Iterating through the grid.
-		for (int i=0; i<board.length; i++)
-		{
-			for (int j=0; j<board[i].length; j++)
-			{
-				if (board[i][j] == 0)
-				{
-					newBoard[i][j] = 1;
-				}
-				else {
-					newBoard[i][j] = board[i][j];
-				}
+		List<List<Integer>> integers = new ArrayList<List<Integer>>(9);
+		for (int i =0; i<9; i++) {
+			integers.add(new ArrayList<Integer>(9));
+		}
+		Path filePath = Paths.get("numbers.txt");
+		Scanner scanner = new Scanner(filePath);
+		int num = 0;
+		int counter = 0;
+		while (num < 9) {
+			while (counter < 9) {
+					integers.get(num).add(scanner.nextInt());
+					counter++;
 			}
+			num++;
+			counter = 0;
 		}
-		// Printing the array items
-		System.out.print("[ " + newBoard[0][0] + " " + newBoard[0][1] + " " + newBoard[0][2] + " \n" +
-						 "  " +	newBoard[1][0] + " " + newBoard[1][1] + " " + newBoard[1][2] + " \n" +
-						 "  " +	newBoard[2][0] + " " + newBoard[2][1] + " " + newBoard[2][2] + " ]");
-		}
+		System.out.print(integers);
+	}
 }
