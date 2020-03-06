@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 
 class sudoku {
-	public static void main(String[] args) throws IOException
-	{
+
+	public static List<List<Integer>> prepTheGame() throws IOException {
 		List<List<Integer>> board = new ArrayList<List<Integer>>(9);
 		for (int i =0; i<9; i++) {
 			board.add(new ArrayList<Integer>(9));
@@ -24,7 +24,12 @@ class sudoku {
 			num++;
 			counter = 0;
 		}
-
+		return board;
+	}
+	public static void main(String[] args) throws IOException
+	{
+		List<List<Integer>> board = new ArrayList<List<Integer>>(9);
+		board = prepTheGame();
 		System.out.print("[" + board.get(1) + "\n");
 		for (int i=1; i<8; i++) {
 			System.out.print(" " + board.get(i) + "\n");
