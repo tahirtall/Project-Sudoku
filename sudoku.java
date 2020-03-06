@@ -46,6 +46,8 @@ class sudoku {
 			}
 			counter = 0;
 		}
+		//TODO: Check the rows, and replace the numbers to make sure
+		// 		there are no repeating numbers on each row.
 		return board;
 	}
 	public static void main(String[] args) throws IOException
