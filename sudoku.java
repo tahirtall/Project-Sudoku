@@ -21,6 +21,7 @@ public class sudoku {
         {2, 3, 0, 0, 4, 1, 5, 0, 7}
     };
 
+    // for comparison
     private static int[][] solvedBoard = {
         {8, 2, 7, 1, 5, 4, 3, 9, 6},
         {9, 6, 5, 3, 2, 7, 1, 4, 8},
@@ -34,37 +35,37 @@ public class sudoku {
     };
 
     // Returns 2D Array of the Answer
-	public void showTheAnswer() {
-        for (int i=0; i<9; i++) {
-            for(int j=0; j=9; j++) {
-                System.out.print(solvedBoard[i][j] + " ");
+	public static void showTheAnswer() {
+        int counter = 0;
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                    counter++;
+                    if (counter != 10) {
+                        System.out.print(solvedBoard[i][j] + " ");
+                    }
+                }
+            System.out.print("\n");
+            counter = 0;
             }
         }
-	}
 
-	// Reads in the txt file, and creates a 2D Arraylist.
-	public static List<List<Integer>> prepTheGame() throws IOException {
-		List<List<Integer>> board = new ArrayList<List<Integer>>(9);
-		for (int i =0; i<9; i++) {
-			board.add(new ArrayList<Integer>(9));
-		}
-		Path filePath = Paths.get("numbers.txt");
-		Scanner scanner = new Scanner(filePath);
-		int num = 0;
-		int counter = 0;
-		while (num < 9) {
-			while (counter < 9) {
-					board.get(num).add(scanner.nextInt());
-					counter++;
-			}
-			num++;
-			counter = 0;
-		}
-		return board;
-	}
+    // The table before solving
+    public static void prepTheGame() {
+        int counter = 0;
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                    counter++;
+                    if (counter != 10) {
+                        System.out.print(board[i][j] + " ");
+                    }
+                }
+            System.out.print("\n");
+            counter = 0;
+            }
+    }
 
     // Row constraints
-    public static boolean checkRow(){
+    public static boolean checkRow() {
         // TODO
         return true;
     }
@@ -74,26 +75,26 @@ public class sudoku {
         // TODO
         return true;
     }
-    
+
     // Checks if row and column constraints clear out.
     public static boolean isValid() {
         // TODO
         return true;
     }
 
+    // Takes the arraylist created by prepTheGame() and properly places all of the
+    // numbers to create a completed Sudoku grid.
+    public static int[][] solveTheGame(){
+        return board;
+    }
 
-	// Takes the arraylist created by prepTheGame() and properly places all of the
-	// numbers to create a completed Sudoku grid.
-	public static List<List<Integer>> playTheGame() throws IOException {
-		List<List<Integer>> index = new ArrayList<List<Integer>>(9);
-		List<List<Integer>> board = new ArrayList<List<Integer>>(9);
-		board = prepTheGame();
-		// TODO: Use index object to somehow check rows and columns and somehow edit down the correct number and return it.
-		return board;
-	}
+    public static void main(String[] args) throws IOException {
+        System.out.println(" ");
+        System.out.println("Output:");
+        prepTheGame();
+        System.out.println("======================");
+        System.out.println("Expected:");
+        showTheAnswer();
 
-	public static void main(String[] args) throws IOException
-	{
-        System.out.print(showTheAnswer());
 	} 
 }
