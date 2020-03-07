@@ -1,9 +1,3 @@
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 import java.util.stream.IntStream;
 
 public class sudoku {
@@ -64,15 +58,28 @@ public class sudoku {
             }
     }
 
-    // Row constraints
+    // Row constrains
     public static boolean checkRow() {
         // TODO
         return true;
     }
 
-    // Column constraints
+    // Column constrains
     public static boolean checkColumn() {
         // TODO
+        return true;
+    }
+
+    // Checks constrains for row and column
+    public static boolean rules(int[][] board, int row, boolean[] constrains, int column) {
+        if (board[row][column] == 0) {
+            if (!constrains[board[row][column]-1]) {
+                constrains[board[row][column-1]] = true; 
+            }
+            else {
+                return false;
+            }
+        }
         return true;
     }
 
@@ -88,7 +95,7 @@ public class sudoku {
         return board;
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         System.out.println(" ");
         System.out.println("Output:");
         prepTheGame();
