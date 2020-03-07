@@ -21,7 +21,7 @@ Progress:
 
 Current Goal:
         
-        -> To Be Determined
+        -> Create the constraint functions for the computer to follow.
 
 ArrayList:
 
