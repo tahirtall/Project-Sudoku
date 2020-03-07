@@ -58,23 +58,23 @@ public class sudoku {
             }
     }
 
-    // Row constrains
-    public static boolean checkRow() {
-        // TODO
-        return true;
+    // Row constraints
+    public static boolean checkRow(int[][] board, int row) {
+        boolean[] constraint = new boolean[9];
+        return IntStream.range(0, 9).allMatch(column -> rules(board, row, constraint, column));
     }
 
-    // Column constrains
-    public static boolean checkColumn() {
-        // TODO
-        return true;
+    // Column constraints
+    public static boolean checkColumn(int[][] board, int column) {
+        boolean[] constraint = new boolean[9];
+        return IntStream.range(0,9).allMatch(row -> rules(board, row, constraint, column));
     }
 
     // Checks constrains for row and column
-    public static boolean rules(int[][] board, int row, boolean[] constrains, int column) {
+    public static boolean rules(int[][] board, int row, boolean[] constraint, int column) {
         if (board[row][column] == 0) {
-            if (!constrains[board[row][column]-1]) {
-                constrains[board[row][column-1]] = true; 
+            if (!constraint[board[row][column]-1]) {
+                constraint[board[row][column-1]] = true; 
             }
             else {
                 return false;
