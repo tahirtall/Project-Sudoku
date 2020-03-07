@@ -7,6 +7,16 @@ import java.util.Scanner;
 
 class sudoku {
 
+    private final static int MIN_VALUE = 0;
+    private final static int MAX_VALUE = 9;
+    private final static int BOARD_START_INDEX = 0;
+    private final static int BOARD_SIZE = 9;
+    private final static int SUBSECTION = 3;
+    private final static int NO_VALUE = 0;
+
+    private static List<List<Integer>> board = prepTheGame();
+    
+
 	// Returns 2D Array of the Answer
 	public static List<List<Integer>> showTheAnswer() throws IOException {
 		List<List<Integer>> board = new ArrayList<List<Integer>>(9);
@@ -19,7 +29,7 @@ class sudoku {
 		int counter = 0;
 		while (num < 9) {
 			while (counter < 9) {
-				board.get(num).add(scanner.nextInt());
+                board.get(num).add(scanner.nextInt());
 				counter++;
 			}
 			num++;
@@ -71,6 +81,14 @@ class sudoku {
 		}
 		return index;
 	}
+    
+    // Checks the row if the curren
+    public static boolean checkRow(){
+        
+        return true;
+
+
+    }
 
 
 	// Takes the arraylist created by prepTheGame() and properly places all of the
