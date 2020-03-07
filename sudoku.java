@@ -44,18 +44,18 @@ public class sudoku {
         }
 
     // The table before solving
-    public static void prepTheGame() {
+    public void prepTheGame() {
         int counter = 0;
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                    counter++;
-                    if (counter != 10) {
-                        System.out.print(board[i][j] + " ");
-                    }
+                counter++;
+                if (counter != 10) {
+                    System.out.print(board[i][j] + " ");
                 }
+            }
             System.out.print("\n");
             counter = 0;
-            }
+        }
     }
 
     // Row constraints
@@ -67,16 +67,15 @@ public class sudoku {
     // Column constraints
     public static boolean checkColumn(int[][] board, int column) {
         boolean[] constraint = new boolean[9];
-        return IntStream.range(0,9).allMatch(row -> rules(board, row, constraint, column));
+        return IntStream.range(0, 9).allMatch(row -> rules(board, row, constraint, column));
     }
 
     // Checks constrains for row and column
     public static boolean rules(int[][] board, int row, boolean[] constraint, int column) {
-        if (board[row][column] == 0) {
-            if (!constraint[board[row][column]-1]) {
-                constraint[board[row][column-1]] = true; 
-            }
-            else {
+        if (board[row][column] != 0) {
+            if (!constraint[board[row][column] - 1]) {
+                constraint[board[row][column - 1]] = true;
+            } else {
                 return false;
             }
         }
@@ -84,21 +83,36 @@ public class sudoku {
     }
 
     // Checks if row and column constraints clear out.
-    public static boolean isValid() {
-        // TODO
-        return true;
+    public static boolean isValid(int[][] board, int row, int column) {
+        return checkColumn(board, column) && checkRow(board, row);
     }
 
     // Takes the arraylist created by prepTheGame() and properly places all of the
     // numbers to create a completed Sudoku grid.
-    public static int[][] solveTheGame(){
-        return board;
+    public boolean solveTheGame(int[][] board) {
+        for (int i = 1; i < 9; i++) {
+            for (int j = 1; j < 9; j++) {
+                if (board[i][j] == 0) {
+                    for (int k = 1; k <= 9; k++) {
+                        board[i][j] = k;
+                        if (isValid(board, i, j) && solveTheGame(board)) {
+                            return true;
+                        }
+                        board[i][j] = 0;
+                    }
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args) {
+        sudoku solve = new sudoku();
+        solve.solveTheGame(board);
         System.out.println(" ");
         System.out.println("Output:");
-        prepTheGame();
+        solve.prepTheGame();
         System.out.println("======================");
         System.out.println("Expected:");
         showTheAnswer();
