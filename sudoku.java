@@ -70,6 +70,11 @@ public class sudoku {
         return IntStream.range(0, 9).allMatch(row -> rules(board, row, constraint, column));
     }
 
+    // Subgrid constraints
+    public static boolean subGrid(int[]][] board, int row, int column) {
+        
+    }
+
     // Checks constrains for row and column
     public static boolean rules(int[][] board, int row, boolean[] constraint, int column) {
         if (board[row][column] != 0) {
@@ -100,16 +105,14 @@ public class sudoku {
                         }
                         board[i][j] = 0;
                     }
-                    return false;
-                }
-            }
-        }
+                    return false; }}}
         return true;
     }
 
     public static void main(String[] args) {
         sudoku solve = new sudoku();
         solve.solveTheGame(board);
+
         System.out.println(" ");
         System.out.println("Output:");
         solve.prepTheGame();
