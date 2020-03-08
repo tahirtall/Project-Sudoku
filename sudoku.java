@@ -72,7 +72,7 @@ public class sudoku {
 
     // Subgrid constraints
     public static boolean subGrid(int[]][] board, int row, int column) {
-        
+        //TODO
     }
 
     // Checks constrains for row and column
