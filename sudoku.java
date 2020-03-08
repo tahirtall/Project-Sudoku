@@ -3,7 +3,7 @@ import java.util.stream.IntStream;
 public class sudoku {
     
     // 0s represent blank spaces
-    private static int[][] board = {
+    private int[][] board = {
         {8, 0, 7, 1, 5, 0, 0, 9, 6},
         {0, 6, 5, 3, 0, 7, 1, 4, 0},
         {3, 4, 1, 0, 8, 0, 7, 0, 2},
@@ -44,7 +44,7 @@ public class sudoku {
         }
 
     // The table before solving
-    public void prepTheGame() {
+    public void printTheGame() {
         int counter = 0;
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -112,11 +112,10 @@ public class sudoku {
 
     public static void main(String[] args) {
         sudoku solve = new sudoku();
-        solve.solveTheGame(board);
-
         System.out.println(" ");
         System.out.println("Output:");
-        solve.prepTheGame();
+        solve.solveTheGame(solve.board);
+        solve.printTheGame();
         System.out.println("======================");
         System.out.println("Expected:");
         showTheAnswer();
